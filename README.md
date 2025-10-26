@@ -14,7 +14,7 @@ A powerful AI chatbot application built with the MERN stack, featuring conversat
 
 ## 🚀 Live Demo
 
-**[Try AetherBot Now](#)** _(Replace with your deployment link)_
+**[Try AetherBot Now](#)** https://aether-bot-client.vercel.app/
 
 ### How to Use the Live Demo
 
@@ -101,7 +101,6 @@ npm install
 Create a `.env` file in the server directory:
 
 ```env
-PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 GEMINI_API_KEY=your_gemini_api_key
@@ -124,6 +123,17 @@ npm start
 ```bash
 cd ../client
 npm install
+```
+
+Create a `.env` file in the client directory:
+
+```env
+VITE_SERVER_URL=http://localhost:5000
+```
+
+Start the frontend development server:
+
+```bash
 npm run dev
 ```
 
@@ -186,11 +196,10 @@ Aetherbot/
 
 ## 🔐 Environment Variables
 
-### Backend
+### Backend (server/.env)
 
 | Variable                 | Description                                  |
 | ------------------------ | -------------------------------------------- |
-| `PORT`                   | Server port number                           |
 | `MONGO_URI`              | MongoDB connection string                    |
 | `JWT_SECRET`             | Secret key for JWT tokens                    |
 | `GEMINI_API_KEY`         | Google Gemini API key                        |
@@ -200,6 +209,34 @@ Aetherbot/
 | `STRIPE_PUBLISHABLE_KEY` | Stripe publishable key                       |
 | `STRIPE_SECRET_KEY`      | Stripe secret key                            |
 | `STRIPE_WEBHOOK_SECRET`  | Stripe webhook secret for event verification |
+
+### Frontend (client/.env)
+
+| Variable          | Description                                      |
+| ----------------- | ------------------------------------------------ |
+| `VITE_SERVER_URL` | Backend server URL (e.g., http://localhost:5000) |
+
+## 🎯 API Endpoints
+
+### Authentication
+
+- `POST /api/auth/register` - Register new user
+- `POST /api/auth/login` - User login
+- `GET /api/auth/user` - Get user profile
+
+### Chat
+
+- `POST /api/chat` - Send chat message
+- `GET /api/chat/history` - Get chat history
+
+### Image Generation
+
+- `POST /api/image/generate` - Generate image from text
+
+### Credits
+
+- `GET /api/credits` - Get user credits
+- `POST /api/credits/purchase` - Purchase credits
 
 ## 💳 Credit System
 
@@ -222,15 +259,5 @@ Aetherbot/
 1. Build the production version: `npm run build`
 2. Deploy the `dist` folder
 3. Configure API endpoint
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ⭐ If you found this project helpful, please give it a star!
